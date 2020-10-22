@@ -1,0 +1,23 @@
+What I did:
+- yarn
+- yarn compile to get js file for texttests
+- config texttests including setting 30 days
+- run texttests
+- write tests following the requirements
+- Refactor (executing mocha and texttests to make sure nothing breaks)
+  1) change for-loop for readability
+  2) replace text by constants
+  3) Simplify and unify if tests
+  4) introduce static incrementQuality() to not have to test for <50
+  5) introduce static decrementQuality() to not have to test for >0
+  6) introduce static decrementSellIn() for readability
+  7) Filter out sulfuras to not have to bother about it anymore
+  8) Update the Item class: add incrementQuality, decrementQuality and decrementSellIn
+     - this is backward compatible
+  9) Replace complicated ifs by switch
+  10) Move item.decrementSellIn(); to the beginning updating the limits <5 and <10
+  11) Integrate the sellIn < 0 statements in the switch
+  12) Introduce resetQuality() for readability
+  13) Split up in smaller functions
+- Write tests for the conjured rule
+- Add an extra switch case executing updateConjuredQuality(), reusing existing code (I could have used switch-case-fallthrough, but for readability I prefer extra code)
