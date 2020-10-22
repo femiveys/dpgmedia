@@ -19,14 +19,14 @@ export class Item {
   incrementQuality = () => {
     // The Quality of an item is never more than 50
     if (this.quality < 50) {
-      this.quality = this.quality + 1;
+      this.quality++;
     }
   };
 
   decrementQuality = () => {
     // The Quality of an item is never negative
     if (this.quality > 0) {
-      this.quality = this.quality - 1;
+      this.quality--;
     }
   };
 
@@ -57,6 +57,7 @@ export class GildedRose {
     return this.items;
   };
 
+  // Static Helpers
   static updateItemSellIn = (item: Item) => {
     item.decrementSellIn();
   };
@@ -80,6 +81,7 @@ export class GildedRose {
     }
   };
 
+  // Quality updaters
   static updateBrieQuality = (item: Item) => {
     item.incrementQuality();
     if (item.shouldHaveBeenSold()) {
@@ -100,16 +102,16 @@ export class GildedRose {
     }
   };
 
-  static updateConjuredQuality = (item: Item) => {
-    GildedRose.updateDefaultQuality(item);
-    GildedRose.updateDefaultQuality(item);
-  };
-
   static updateDefaultQuality = (item: Item) => {
     item.decrementQuality();
     if (item.shouldHaveBeenSold()) {
       item.decrementQuality();
     }
+  };
+
+  static updateConjuredQuality = (item: Item) => {
+    GildedRose.updateDefaultQuality(item);
+    GildedRose.updateDefaultQuality(item);
   };
 
   // For backward compatibility
