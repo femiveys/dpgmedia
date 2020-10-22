@@ -28,7 +28,7 @@ diff_program:meld
 #interpreter:perl
 
 # Settings for the TypeScript version
-#executable:${TEXTTEST_HOME}/TypeScript/test/golden-master-text-test.js
-#interpreter:node
+executable:${TEXTTEST_HOME}/TypeScript/test/golden-master-text-test.js
+interpreter:node
 
 filename_convention_scheme:standard
