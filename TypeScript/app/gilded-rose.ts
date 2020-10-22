@@ -71,6 +71,10 @@ export class GildedRose {
         GildedRose.updateBackstageQuality(item);
         break;
 
+      case CONJURED:
+        GildedRose.updateConjuredQuality(item);
+        break;
+
       default:
         GildedRose.updateDefaultQuality(item);
     }
@@ -94,6 +98,11 @@ export class GildedRose {
     if (item.shouldHaveBeenSold()) {
       item.resetQuality();
     }
+  };
+
+  static updateConjuredQuality = (item: Item) => {
+    GildedRose.updateDefaultQuality(item);
+    GildedRose.updateDefaultQuality(item);
   };
 
   static updateDefaultQuality = (item: Item) => {
